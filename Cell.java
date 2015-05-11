@@ -4,7 +4,7 @@ import java.awt.*;
 
 /**
  * Creates a cell to be put in the grid
- * @author Brian
+ * @author Brian and Alex
  *
  */
 public class Cell extends JPanel
@@ -25,7 +25,7 @@ public class Cell extends JPanel
 		this.row = row;
 		this.column = column;
 		this.GUI = GUI;
-		this.color = Color.lightGray;
+		this.color = Color.white;
 		setBorder(new LineBorder(Color.black, 1));
 		setBackground(color);
 	}
@@ -35,21 +35,36 @@ public class Cell extends JPanel
 	 */
 	public void colorChange()
 	{
-		color = Color.orange;
+		color = Color.black;
 		setBackground(color);
 	}
 	
+	/**
+	 * @return the color of the cell
+	 */
 	public Color getColor()
 	{
 		return color;
 	}
 	
 	/**
-	 * Changes the color to light gray
+	 * Changes the color to white
 	 */
 	public void setDefault()
 	{
-		color = Color.lightGray;
+		color = Color.white;
 		setBackground(color);
+	}
+	
+	/**
+	 * @return true if the cell has been colored in and is alive
+	 */
+	public boolean isAlive()
+	{
+		if (getColor() == Color.black)
+		{
+			return true;
+		}
+		return false;
 	}
 }
